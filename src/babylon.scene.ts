@@ -319,6 +319,10 @@
             return this._workerCollisions;
         }
 
+        public get SelectionOctree(): Octree<AbstractMesh> {
+            return this._selectionOctree;
+        }
+
         /**
          * The mesh that is currently under the pointer.
          * @return {BABYLON.AbstractMesh} mesh under the pointer/mouse cursor or null if none.
@@ -530,6 +534,10 @@
             this._engine.getRenderingCanvas().addEventListener(eventPrefix + "down", this._onPointerDown, false);
             this._engine.getRenderingCanvas().addEventListener(eventPrefix + "up", this._onPointerUp, false);
 
+            // Wheel
+            this._engine.getRenderingCanvas().addEventListener('mousewheel', this._onPointerMove, false);
+            this._engine.getRenderingCanvas().addEventListener('DOMMouseScroll', this._onPointerMove, false);
+
             Tools.RegisterTopRootEvents([
                 { name: "keydown", handler: this._onKeyDown },
                 { name: "keyup", handler: this._onKeyUp }
@@ -541,6 +549,10 @@
             this._engine.getRenderingCanvas().removeEventListener(eventPrefix + "move", this._onPointerMove);
             this._engine.getRenderingCanvas().removeEventListener(eventPrefix + "down", this._onPointerDown);
             this._engine.getRenderingCanvas().removeEventListener(eventPrefix + "up", this._onPointerUp);
+
+            // Wheel
+            this._engine.getRenderingCanvas().removeEventListener('mousewheel', this._onPointerMove);
+            this._engine.getRenderingCanvas().removeEventListener('DOMMouseScroll', this._onPointerMove);
 
             Tools.UnregisterTopRootEvents([
                 { name: "keydown", handler: this._onKeyDown },
@@ -1407,13 +1419,9 @@
                 }
                 Tools.EndPerformanceCounter("Render targets", this._renderTargets.length > 0);
 
-
                 this._renderId++;
             }
 
-            if (this._renderTargets.length > 0) { // Restore back buffer
-                engine.restoreDefaultFramebuffer();
-            }
             this._renderTargetsDuration += Tools.Now - beforeRenderTargetDate;
 
             // Prepare Frame

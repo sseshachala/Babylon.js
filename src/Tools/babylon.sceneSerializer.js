@@ -606,11 +606,19 @@ var BABYLON;
             if (mesh.material) {
                 if (mesh.material instanceof BABYLON.StandardMaterial) {
                     serializationObject.materials = serializationObject.materials || [];
-                    serializationObject.materials.push(serializeMaterial(mesh.material));
+                    if (!serializationObject.materials.some(function (mat) {
+                        return mat.id == mesh.material.id;
+                    })) {
+                        serializationObject.materials.push(serializeMaterial(mesh.material));
+                    }
                 }
                 else if (mesh.material instanceof BABYLON.MultiMaterial) {
                     serializationObject.multiMaterials = serializationObject.multiMaterials || [];
-                    serializationObject.multiMaterials.push(serializeMultiMaterial(mesh.material));
+                    if (!serializationObject.multiMaterials.some(function (mat) {
+                        return mat.id == mesh.material.id;
+                    })) {
+                        serializationObject.multiMaterials.push(serializeMultiMaterial(mesh.material));
+                    }
                 }
             }
             //serialize geometry

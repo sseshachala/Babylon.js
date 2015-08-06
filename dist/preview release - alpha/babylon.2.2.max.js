@@ -4299,7 +4299,9 @@ var BABYLON;
                 onload(img);
             };
             img.onerror = function (err) {
-                onerror(img, err);
+                Tools.Error("Error while trying to load texture: " + url);
+                img.src = "data:image/jpg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/4QBmRXhpZgAATU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAAExAAIAAAAQAAAATgAAAAAAAABgAAAAAQAAAGAAAAABcGFpbnQubmV0IDQuMC41AP/bAEMABAIDAwMCBAMDAwQEBAQFCQYFBQUFCwgIBgkNCw0NDQsMDA4QFBEODxMPDAwSGBITFRYXFxcOERkbGRYaFBYXFv/bAEMBBAQEBQUFCgYGChYPDA8WFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFv/AABEIAQABAAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/APH6KKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FCiiigD6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++gooooA+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gUKKKKAPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76CiiigD5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BQooooA+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/voKKKKAPl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FCiiigD6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++gooooA+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gUKKKKAPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76CiiigD5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BQooooA+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/voKKKKAPl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FCiiigD6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++gooooA+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gUKKKKAPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76Pl+iiivuj+BT6gooor4U/vo+X6KKK+6P4FPqCiiivhT++j5fooor7o/gU+oKKKK+FP76P//Z";
+                onload(img);
             };
             var noIndexedDB = function () {
                 img.src = url;
@@ -4329,7 +4331,6 @@ var BABYLON;
                         img.src = blobURL;
                     }
                     catch (e) {
-                        Tools.Log("Error while trying to load texture: " + textureName);
                         img.src = null;
                     }
                 }
@@ -4724,6 +4725,7 @@ var BABYLON;
             // nothing to do
         };
         Tools._ErrorEnabled = function (message) {
+            Tools.errorsCount++;
             var formattedMessage = Tools._FormatMessage(message);
             console.error("BJS - " + formattedMessage);
             var entry = "<div style='color:red'>" + formattedMessage + "</div><br>";
@@ -4736,6 +4738,10 @@ var BABYLON;
             enumerable: true,
             configurable: true
         });
+        Tools.ClearLogCache = function () {
+            Tools._LogCache = "";
+            Tools.errorsCount = 0;
+        };
         Object.defineProperty(Tools, "LogLevels", {
             set: function (level) {
                 if ((level & Tools.MessageLogLevel) === Tools.MessageLogLevel) {
@@ -4860,6 +4866,7 @@ var BABYLON;
         Tools._WarningLogLevel = 2;
         Tools._ErrorLogLevel = 4;
         Tools._LogCache = "";
+        Tools.errorsCount = 0;
         Tools.Log = Tools._LogEnabled;
         Tools.Warn = Tools._WarnEnabled;
         Tools.Error = Tools._ErrorEnabled;
@@ -5320,6 +5327,8 @@ var BABYLON;
             this.isPointerLock = false;
             this.cullBackFaces = true;
             this.renderEvenInBackground = true;
+            // To enable/disable IDB support and avoid XHR on .manifest
+            this.enableOfflineSupport = true;
             this.scenes = new Array();
             this._windowIsBackground = false;
             this._loadingDivBackgroundColor = "black";
@@ -5801,13 +5810,15 @@ var BABYLON;
         };
         Engine.prototype.unBindFramebuffer = function (texture) {
             this._currentRenderTarget = null;
+            this._gl.bindFramebuffer(this._gl.FRAMEBUFFER, null);
             if (texture.generateMipMaps) {
                 var gl = this._gl;
                 gl.bindTexture(gl.TEXTURE_2D, texture);
                 gl.generateMipmap(gl.TEXTURE_2D);
                 gl.bindTexture(gl.TEXTURE_2D, null);
             }
-            this._gl.bindFramebuffer(this._gl.FRAMEBUFFER, null);
+            this.setViewport(this._cachedViewport);
+            this.wipeCaches();
         };
         Engine.prototype.flushFramebuffer = function () {
             this._gl.flush();
@@ -7208,7 +7219,8 @@ var BABYLON;
                         default:
                             if (this._filesToLoad[i].name.indexOf(".babylon") !== -1 && this._filesToLoad[i].name.indexOf(".manifest") === -1
                                 && this._filesToLoad[i].name.indexOf(".incremental") === -1 && this._filesToLoad[i].name.indexOf(".babylonmeshdata") === -1
-                                && this._filesToLoad[i].name.indexOf(".babylongeometrydata") === -1) {
+                                && this._filesToLoad[i].name.indexOf(".babylongeometrydata") === -1 && this._filesToLoad[i].name.indexOf(".babylonbinarymeshdata") === -1 &&
+                                this._filesToLoad[i].name.indexOf(".binary.babylon") === -1) {
                                 this._sceneFileToLoad = this._filesToLoad[i];
                             }
                             break;
@@ -7223,6 +7235,10 @@ var BABYLON;
             // If a ".babylon" file has been provided
             if (this._sceneFileToLoad) {
                 if (this._currentScene) {
+                    if (BABYLON.Tools.errorsCount > 0) {
+                        BABYLON.Tools.ClearLogCache();
+                        BABYLON.Tools.Log("Babylon.js engine (v" + BABYLON.Engine.Version + ") launched");
+                    }
                     this._engine.stopRenderLoop();
                     this._currentScene.dispose();
                 }
@@ -12487,6 +12503,13 @@ var BABYLON;
             enumerable: true,
             configurable: true
         });
+        Object.defineProperty(Scene.prototype, "SelectionOctree", {
+            get: function () {
+                return this._selectionOctree;
+            },
+            enumerable: true,
+            configurable: true
+        });
         Object.defineProperty(Scene.prototype, "meshUnderPointer", {
             /**
              * The mesh that is currently under the pointer.
@@ -12663,6 +12686,9 @@ var BABYLON;
             this._engine.getRenderingCanvas().addEventListener(eventPrefix + "move", this._onPointerMove, false);
             this._engine.getRenderingCanvas().addEventListener(eventPrefix + "down", this._onPointerDown, false);
             this._engine.getRenderingCanvas().addEventListener(eventPrefix + "up", this._onPointerUp, false);
+            // Wheel
+            this._engine.getRenderingCanvas().addEventListener('mousewheel', this._onPointerMove, false);
+            this._engine.getRenderingCanvas().addEventListener('DOMMouseScroll', this._onPointerMove, false);
             BABYLON.Tools.RegisterTopRootEvents([
                 { name: "keydown", handler: this._onKeyDown },
                 { name: "keyup", handler: this._onKeyUp }
@@ -12673,6 +12699,9 @@ var BABYLON;
             this._engine.getRenderingCanvas().removeEventListener(eventPrefix + "move", this._onPointerMove);
             this._engine.getRenderingCanvas().removeEventListener(eventPrefix + "down", this._onPointerDown);
             this._engine.getRenderingCanvas().removeEventListener(eventPrefix + "up", this._onPointerUp);
+            // Wheel
+            this._engine.getRenderingCanvas().removeEventListener('mousewheel', this._onPointerMove);
+            this._engine.getRenderingCanvas().removeEventListener('DOMMouseScroll', this._onPointerMove);
             BABYLON.Tools.UnregisterTopRootEvents([
                 { name: "keydown", handler: this._onKeyDown },
                 { name: "keyup", handler: this._onKeyUp }
@@ -13385,9 +13414,6 @@ var BABYLON;
                 }
                 BABYLON.Tools.EndPerformanceCounter("Render targets", this._renderTargets.length > 0);
                 this._renderId++;
-            }
-            if (this._renderTargets.length > 0) {
-                engine.restoreDefaultFramebuffer();
             }
             this._renderTargetsDuration += BABYLON.Tools.Now - beforeRenderTargetDate;
             // Prepare Frame
@@ -18243,6 +18269,7 @@ var BABYLON;
             this.alpha = 1.0;
             this.backFaceCulling = true;
             this.alphaMode = BABYLON.Engine.ALPHA_COMBINE;
+            this.disableDepthWrite = false;
             this._wasPreviouslyReady = false;
             this._fillMode = Material.TriangleFillMode;
             this.pointSize = 1.0;
@@ -18334,10 +18361,19 @@ var BABYLON;
             if (this.onBind) {
                 this.onBind(this, mesh);
             }
+            if (this.disableDepthWrite) {
+                var engine = this._scene.getEngine();
+                this._cachedDepthWriteState = engine.getDepthWrite();
+                engine.setDepthWrite(false);
+            }
         };
         Material.prototype.bindOnlyWorldMatrix = function (world) {
         };
         Material.prototype.unbind = function () {
+            if (this.disableDepthWrite) {
+                var engine = this._scene.getEngine();
+                engine.setDepthWrite(this._cachedDepthWriteState);
+            }
         };
         Material.prototype.clone = function (name) {
             return null;
@@ -18868,6 +18904,7 @@ var BABYLON;
             if (this.reflectionTexture && this.reflectionTexture.isRenderTarget) {
                 this._effect.setTexture("reflection2DSampler", null);
             }
+            _super.prototype.unbind.call(this);
         };
         StandardMaterial.prototype.bindOnlyWorldMatrix = function (world) {
             this._effect.setMatrix("world", world);
@@ -19262,8 +19299,13 @@ var BABYLON;
                     importMeshFromData(data);
                 }, progressCallBack, database);
             };
-            // Checking if a manifest file has been set for this scene and if offline mode has been requested
-            var database = new BABYLON.Database(rootUrl + sceneFilename, manifestChecked);
+            if (scene.getEngine().enableOfflineSupport) {
+                // Checking if a manifest file has been set for this scene and if offline mode has been requested
+                var database = new BABYLON.Database(rootUrl + sceneFilename, manifestChecked);
+            }
+            else {
+                manifestChecked(true);
+            }
         };
         /**
         * Load a scene
@@ -19321,8 +19363,13 @@ var BABYLON;
                 return;
             }
             if (rootUrl.indexOf("file:") === -1) {
-                // Checking if a manifest file has been set for this scene and if offline mode has been requested
-                database = new BABYLON.Database(rootUrl + sceneFilename, manifestChecked);
+                if (scene.getEngine().enableOfflineSupport) {
+                    // Checking if a manifest file has been set for this scene and if offline mode has been requested
+                    database = new BABYLON.Database(rootUrl + sceneFilename, manifestChecked);
+                }
+                else {
+                    manifestChecked(true);
+                }
             }
             else {
                 BABYLON.Tools.ReadFile(sceneFilename, loadSceneFromData, progressCallBack);
@@ -19452,6 +19499,9 @@ var BABYLON;
             material.emissiveColor = BABYLON.Color3.FromArray(parsedMaterial.emissive);
             material.alpha = parsedMaterial.alpha;
             material.id = parsedMaterial.id;
+            if (parsedMaterial.disableDepthWrite) {
+                material.disableDepthWrite = parsedMaterial.disableDepthWrite;
+            }
             BABYLON.Tags.AddTagsTo(material, parsedMaterial.tags);
             material.backFaceCulling = parsedMaterial.backFaceCulling;
             material.wireframe = parsedMaterial.wireframe;
@@ -24443,11 +24493,19 @@ var BABYLON;
             if (mesh.material) {
                 if (mesh.material instanceof BABYLON.StandardMaterial) {
                     serializationObject.materials = serializationObject.materials || [];
-                    serializationObject.materials.push(serializeMaterial(mesh.material));
+                    if (!serializationObject.materials.some(function (mat) {
+                        return mat.id == mesh.material.id;
+                    })) {
+                        serializationObject.materials.push(serializeMaterial(mesh.material));
+                    }
                 }
                 else if (mesh.material instanceof BABYLON.MultiMaterial) {
                     serializationObject.multiMaterials = serializationObject.multiMaterials || [];
-                    serializationObject.multiMaterials.push(serializeMultiMaterial(mesh.material));
+                    if (!serializationObject.multiMaterials.some(function (mat) {
+                        return mat.id == mesh.material.id;
+                    })) {
+                        serializationObject.multiMaterials.push(serializeMultiMaterial(mesh.material));
+                    }
                 }
             }
             //serialize geometry
@@ -26310,7 +26368,7 @@ var BABYLON;
                 pathArray[i] = [];
                 for (var j = 0; j < tessellation; j++) {
                     angle = j * angle_step;
-                    ringVertex = BABYLON.Vector3.TransformCoordinates(normals[i], BABYLON.Matrix.RotationAxis(tangents[i], angle));
+                    ringVertex = new BABYLON.Vector3(Math.cos(-angle), 0, Math.sin(-angle));
                     ringVertex.scaleInPlace(radiusFunction(i, distances[i])).addInPlace(path[i]);
                     pathArray[i].push(ringVertex);
                 }
@@ -26327,9 +26385,10 @@ var BABYLON;
                 var textureScale = new BABYLON.Vector2(0.5, 0.5);
                 // Positions, normals & uvs
                 var angle;
+                var circleVector;
                 for (var i = 0; i < tessellation; i++) {
                     angle = Math.PI * 2 * i / tessellation;
-                    var circleVector = new BABYLON.Vector3(Math.cos(angle), 0, Math.sin(angle));
+                    circleVector = new BABYLON.Vector3(Math.cos(-angle), 0, Math.sin(-angle));
                     var position = circleVector.scale(radius).add(offset);
                     var textureCoordinate = new BABYLON.Vector2(circleVector.x * textureScale.x + 0.5, circleVector.z * textureScale.y + 0.5);
                     vertexdata.positions.push(position.x, position.y, position.z);
@@ -26340,13 +26399,13 @@ var BABYLON;
                 for (i = 0; i < tessellation - 2; i++) {
                     if (!isTop) {
                         vertexdata.indices.push(vbase);
-                        vertexdata.indices.push(vbase + (i + 2) % tessellation);
                         vertexdata.indices.push(vbase + (i + 1) % tessellation);
+                        vertexdata.indices.push(vbase + (i + 2) % tessellation);
                     }
                     else {
                         vertexdata.indices.push(vbase);
-                        vertexdata.indices.push(vbase + (i + 1) % tessellation);
                         vertexdata.indices.push(vbase + (i + 2) % tessellation);
+                        vertexdata.indices.push(vbase + (i + 1) % tessellation);
                     }
                 }
             };
@@ -29584,7 +29643,7 @@ var BABYLON;
                 }
                 return true;
             };
-            this.apply = function (scene) {
+            this.apply = function (scene, updateSelectionTree) {
                 var globalPool = scene.meshes.slice(0);
                 var globalLength = globalPool.length;
                 for (var index = 0; index < globalLength; index++) {
@@ -29618,9 +29677,28 @@ var BABYLON;
                     // Merge meshes
                     BABYLON.Mesh.MergeMeshes(currentPool);
                 }
+                if (updateSelectionTree != undefined) {
+                    if (updateSelectionTree) {
+                        scene.createOrUpdateSelectionOctree();
+                    }
+                }
+                else if (MergeMeshesOptimization.UpdateSelectionTree) {
+                    scene.createOrUpdateSelectionOctree();
+                }
                 return true;
             };
         }
+        Object.defineProperty(MergeMeshesOptimization, "UpdateSelectionTree", {
+            get: function () {
+                return MergeMeshesOptimization._UpdateSelectionTree;
+            },
+            set: function (value) {
+                MergeMeshesOptimization._UpdateSelectionTree = value;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        MergeMeshesOptimization._UpdateSelectionTree = false;
         return MergeMeshesOptimization;
     })(SceneOptimization);
     BABYLON.MergeMeshesOptimization = MergeMeshesOptimization;

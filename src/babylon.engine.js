@@ -359,6 +359,8 @@ var BABYLON;
             this.isPointerLock = false;
             this.cullBackFaces = true;
             this.renderEvenInBackground = true;
+            // To enable/disable IDB support and avoid XHR on .manifest
+            this.enableOfflineSupport = true;
             this.scenes = new Array();
             this._windowIsBackground = false;
             this._loadingDivBackgroundColor = "black";
@@ -840,13 +842,15 @@ var BABYLON;
         };
         Engine.prototype.unBindFramebuffer = function (texture) {
             this._currentRenderTarget = null;
+            this._gl.bindFramebuffer(this._gl.FRAMEBUFFER, null);
             if (texture.generateMipMaps) {
                 var gl = this._gl;
                 gl.bindTexture(gl.TEXTURE_2D, texture);
                 gl.generateMipmap(gl.TEXTURE_2D);
                 gl.bindTexture(gl.TEXTURE_2D, null);
             }
-            this._gl.bindFramebuffer(this._gl.FRAMEBUFFER, null);
+            this.setViewport(this._cachedViewport);
+            this.wipeCaches();
         };
         Engine.prototype.flushFramebuffer = function () {
             this._gl.flush();

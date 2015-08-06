@@ -196,6 +196,13 @@ var BABYLON;
             enumerable: true,
             configurable: true
         });
+        Object.defineProperty(Scene.prototype, "SelectionOctree", {
+            get: function () {
+                return this._selectionOctree;
+            },
+            enumerable: true,
+            configurable: true
+        });
         Object.defineProperty(Scene.prototype, "meshUnderPointer", {
             /**
              * The mesh that is currently under the pointer.
@@ -372,6 +379,9 @@ var BABYLON;
             this._engine.getRenderingCanvas().addEventListener(eventPrefix + "move", this._onPointerMove, false);
             this._engine.getRenderingCanvas().addEventListener(eventPrefix + "down", this._onPointerDown, false);
             this._engine.getRenderingCanvas().addEventListener(eventPrefix + "up", this._onPointerUp, false);
+            // Wheel
+            this._engine.getRenderingCanvas().addEventListener('mousewheel', this._onPointerMove, false);
+            this._engine.getRenderingCanvas().addEventListener('DOMMouseScroll', this._onPointerMove, false);
             BABYLON.Tools.RegisterTopRootEvents([
                 { name: "keydown", handler: this._onKeyDown },
                 { name: "keyup", handler: this._onKeyUp }
@@ -382,6 +392,9 @@ var BABYLON;
             this._engine.getRenderingCanvas().removeEventListener(eventPrefix + "move", this._onPointerMove);
             this._engine.getRenderingCanvas().removeEventListener(eventPrefix + "down", this._onPointerDown);
             this._engine.getRenderingCanvas().removeEventListener(eventPrefix + "up", this._onPointerUp);
+            // Wheel
+            this._engine.getRenderingCanvas().removeEventListener('mousewheel', this._onPointerMove);
+            this._engine.getRenderingCanvas().removeEventListener('DOMMouseScroll', this._onPointerMove);
             BABYLON.Tools.UnregisterTopRootEvents([
                 { name: "keydown", handler: this._onKeyDown },
                 { name: "keyup", handler: this._onKeyUp }
@@ -1094,9 +1107,6 @@ var BABYLON;
                 }
                 BABYLON.Tools.EndPerformanceCounter("Render targets", this._renderTargets.length > 0);
                 this._renderId++;
-            }
-            if (this._renderTargets.length > 0) {
-                engine.restoreDefaultFramebuffer();
             }
             this._renderTargetsDuration += BABYLON.Tools.Now - beforeRenderTargetDate;
             // Prepare Frame
